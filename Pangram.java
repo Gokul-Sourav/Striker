@@ -1,4 +1,4 @@
-public class Panagram {
+public class Pangram {
 	static int count;
 static String getstring(String input1)
 {
