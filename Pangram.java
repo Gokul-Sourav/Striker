@@ -24,10 +24,10 @@ static String getstring(String input1)
 	}
 	if(count==26)
 	{
-		return "It is a Panagram";
+		return "It is a Pangram";
 	}
 	else {
-		return "Not A panagram";
+		return "Not A pangram";
 	}
 }
 public static void main(String[] args) {
