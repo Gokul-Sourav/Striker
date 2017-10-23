@@ -1,0 +1,49 @@
+<html>
+<head>
+<script type="text/javascript">
+sum=0;
+let s=1;
+function addfun(num1)
+{
+/*let num=arguments[1];
+let num1="dg";
+let num2="54.60a";
+	if(num %2 !=0)
+	alert ("odd");
+	else
+	alert ("Even");
+//document.write(parseFloat(num2));
+
+alert(parseInt(num1)+parseInt(num2));*/
+
+if(num1=="submit")
+{
+for(i=1;i<s;i++)
+{
+//console.log(document.getElementById("input"+i+"").value);
+sum+=parseInt( document.getElementById("input"+i+"").value );
+}
+document.write(sum);
+}
+else
+{
+
+let one=document.createElement("INPUT");
+one.setAttribute("type","text");
+one.setAttribute("id","input"+s+"");
+document.body.appendChild(one);
+//document.getElementById("input1").value="";
+s++;
+}	
+}
+
+</script>
+</head>
+<body>
+<!-- <input type="text" id="input1"> -->
+<form>
+<input type="button" value="add" onclick="addfun(this.value)">
+<input type="button" value="submit" onclick="addfun(this.value)">
+</form>
+</body>
+</html>
