@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="bootstrap/New/First.css">
+  <script type="text/javascript">
+  
+ function dropin(x)
+ {
+ 	document.getElementById('div').style["border-style"]="solid";
+	x.target.appendChild(document.getElementById(x.dataTransfer.getData("text")));
+	document.getElementById("div").visibility="hidden";
+ }
+ 
+ function dragging(x)
+ {
+ document.getElementById('div').style["border-style"]="dashed";
+ 	x.preventDefault();
+ }
+ function drag(x)
+ {
+ 	x.dataTransfer.setData("text",x.target.id);
+ }
+ </script>
+</head>
+<body>
+	<div id="div" ondrop="dropin(event)" ondragover="dragging(event)"  > Drag and Drop the Files Here..
+	</div><br>
+	<center>
+	<a id="zip" href="bootstrap.zip" ondragstart="drag(event)" draggable="true"  >Bootstrap.zip</a>
+	</center>
+	
+</body>
+</html>
