@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="New/ang.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+ </head>
+ <body ng-app="myApp" >
+	<br>
+ 	<div class="shop"  ng-controller="MainController" >
+		<h1>{{ title }}</h1>
+		<input class="txt" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" ng-model="pin" placeholder="Enter the pincode to check "maxlength="6" ng-hide="ppbutton">
+	<button class="chk" ng-hide="ppbutton" ng-click="pinCheck()">check</button>
+		<button class="mt" ng-hide="ppbutton" ng-click="empty()">Empty cart</button>
+		<br>
+		<span class="pincode" ng-hide="valid"> {{ pinResult }} {{newdate | date:'mediumDate'}}</span>
+		<span class="pincode" ng-hide="invalid">{{ pinResult }} </span>
+		<br><br>	
+		<table class="tb" cellspacing="0" cellpadding="0">
+		  <thead>
+				<tr>
+					<th> <span>S.no</span> </th>
+					<th> <span>Product Name</span> </th>
+					<th> <span>Unit Price</span> </th>
+					<th> <span>Quantity</span> </th>
+					<th> <span>Sub Total</span> </th>
+					<th> <span>Remove</span> </th>
+				</tr>
+				</thead>
+				 <tbody>
+      			<tr ng-repeat="pro in products">
+				<td >{{ pro.Sno }}</td>
+				<td class="wid">{{ pro.Name }}</td>
+					<td>{{ pro.Price | currency :"₹"}}</td>
+					<td> <div class="quant">
+						<button class="quant-button" ng-hide="ppbutton" ng-click="minusOne($index)">-</button>
+						<span class="quant-text" > {{ pro.qty }} </span>	
+						<button class="quant-button" ng-click="addOne($index)" ng-hide="ppbutton">+</button>
+						</div>
+					</td>
+					<td>{{ pro.total | currency :"₹" }}</td>
+					<td><span><img class="cancel" src="button_cancel.png" ng-click="remove($index)"></span></td>
+				</tr>
+				
+				</tbody>
+				</table>
+				<br>
+				<button class="but1"> < Continue Shopping</button>
+				<button class="but2" ng-click="buttonEnabling()">Update Cart</button>
+				</div>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/Controllers/MainController.js"></script>
+	</body>
+	</html>
